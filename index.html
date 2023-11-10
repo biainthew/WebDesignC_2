@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="wrap" class="d-flex">
+        <div id="header" class="header">
+            <div class="header-logo">
+                <a href="#">부여가을<span class="pink">연꽃</span>축제</a>
+            </div>
+            <div class="header-nav">
+                <ul>
+                    <li>
+                        <a href="#">축제소개</a>
+                        <ul>
+                            <li><a href="#">초대의 글</a></li>
+                            <li><a href="#">축제개요</a></li>
+                            <li><a href="#">축제연혁</a></li>
+                            <li><a href="#">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">행사안내</a>
+                        <ul>
+                            <li><a href="#">셔틀버스안내</a></li>
+                            <li><a href="#">행사안내</a></li>
+                            <li><a href="#">행사일정</a></li>
+                            <li><a href="#">소공연장</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">홍보마당</a>
+                        <ul>
+                            <li><a href="#">축제소식</a></li>
+                            <li><a href="#">보도자료</a></li>
+                            <li><a href="#">음식레시피</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">참여마당</a>
+                        <ul>
+                            <li><a href="#">참가후기</a></li>
+                            <li><a href="#">연꽃갤러리</a></li>
+                            <li><a href="#">포토갤러리</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div id="slide" class="slide">
+                <ul>
+                    <li><img src="./img/img1.jpg" alt="slide1"></li>
+                    <li><img src="./img/img2.jpg" alt="slide2"></li>
+                    <li><img src="./img/img3.jpg" alt="slide3"></li>
+                </ul>
+            </div>
+            <div id="content" class="content d-flex">
+                <div class="content1">
+                    <div class="content1-title">
+                        <span>공지사항</span>
+                    </div>
+                    <div class="content1-text">
+                        <div class="d-flex modal-trig">
+                            <p>공지사항 내용 입니다</p>
+                            <span>23.11.08</span>
+                        </div>
+                        <div class="d-flex">
+                            <p>공지사항 내용 입니다</p>
+                            <span>23.11.08</span>
+                        </div>
+                        <div class="d-flex">
+                            <p>공지사항 내용 입니다</p>
+                            <span>23.11.08</span>
+                        </div>
+                        <div class="d-flex">
+                            <p>공지사항 내용 입니다</p>
+                            <span>23.11.08</span>
+                        </div>
+                        <div class="d-flex">
+                            <p>공지사항 내용 입니다</p>
+                            <span>23.11.08</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="content2">
+                    <div class="content1-title">
+                        <span>갤러리</span>
+                    </div>
+                    <ul>
+                        <li><img src="./img/img1.jpg" alt="img1"></li>
+                        <li><img src="./img/img2.jpg" alt="img2"></li>
+                        <li><img src="./img/img3.jpg" alt="img3"></li>
+                    </ul>
+                </div>
+                <div class="content3">
+                    <div>
+                        <img src="./img/img3.jpg" alt="img2">
+                        <span>바로가기</span>
+                    </div>
+                </div>
+            </div>
+            <div id="footer" class="footer d-flex">
+                <div class="footer-copy">
+                    <span>Copyrights by WebDesign &copy; All rights reserved</span>
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-sns">
+                        <ul>
+                            <li><img src="./img/sns1.png" alt="sns1"></li>
+                            <li><img src="./img/sns2.png" alt="sns2"></li>
+                            <li><img src="./img/sns3.png" alt="sns3"></li>
+                        </ul>
+                    </div>
+                    <div class="footer-family">
+                        <select name="" id="">
+                            <option value="">패밀리사이트1</option>
+                            <option value="">패밀리사이트2</option>
+                            <option value="">패밀리사이트3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="modal-header">
+                <span>공지사항</span>
+            </div>
+            <div class="modal-content">
+                <p>모달 내용 입니다</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-close">닫기</button>
+            </div>
+        </div>
+        <div class="bg"></div>
+    </div>
+    <script>
+
+        //nav
+        $('.header-nav > ul > li > ul').stop().slideUp();
+        $('.header-nav > ul > li').hover(function(){
+            $('.header-nav > ul > li > ul').stop().slideUp();
+            $('.header-nav > ul > li > a').removeClass('on');
+            $(this).find('ul').stop().slideDown();
+            $(this).find('>a').addClass('on')
+        }, function(){
+            $(this).find('ul').stop().slideUp();
+            $(this).find('>a').removeClass('on')
+        });
+
+        //slide
+        let slideLi = $('.slide > ul > li');
+        let current = 0;
+        setInterval(function(){
+            slideLi.hide();
+            slideLi.eq(current).fadeIn();
+            current ++;
+            if(current == slideLi.size()) {
+                current = 0;
+            };
+        },3000)
+
+        //modal
+        $('.bg').hide();
+        $('.modal-trig').click(function(){
+            console.log('1')
+            $('.modal').css('top', '10%');
+            $('.bg').show();
+        });
+        $('.btn-close').click(function(){
+            $('.modal').css('top', '-100%');
+            $('.bg').hide();
+        });
+    </script>
+</body>
+</html>
